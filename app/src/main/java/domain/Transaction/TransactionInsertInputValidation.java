@@ -7,7 +7,7 @@ public class TransactionInsertInputValidation {
 		}
 		
 		int transactionAmount = Integer.parseInt(amount);
-		if (transactionAmount < 0 && transactionAmount > 9999) {
+		if (transactionAmount < 0 || transactionAmount > 9999) {
 			throw new Exception("Quantidade deve ser maior do que zero e menor do que 9999");
 		}
 		
