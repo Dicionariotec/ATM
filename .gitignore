@@ -1,0 +1,12 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+gradle
+*.drawio
+*.txt
+build
+bin
+.idea
+local.properties
+.classpath
+.settings
+.project
