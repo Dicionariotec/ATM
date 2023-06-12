@@ -1,6 +1,6 @@
 package atm;
 
-import usecase.user.get.output.UserGetOutputData;
+import infra.user.get.output.UserGetOutputData;
 
 public interface ScreenTransition {
 	void goToHomeScreen(UserGetOutputData userGetOutputData);

@@ -4,7 +4,6 @@ import atm.ScreenTransition;
 import atm.Factories.transaction.TransactionGetFactory;
 import atm.Factories.user.UserUpdateFactory;
 import infra.transaction.get.output.TransactionGetOutputData;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -24,7 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import usecase.user.get.output.UserGetOutputData;
 
 public class HomeScreen {
 	Parent parent;

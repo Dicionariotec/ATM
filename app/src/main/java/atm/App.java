@@ -7,10 +7,10 @@ import atm.GUI.GuestScreen;
 import atm.GUI.HomeScreen;
 import atm.GUI.TransactionScreen;
 import atm.GUI.TransactionScreen.Type;
+import infra.user.get.output.UserGetOutputData;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import usecase.user.get.output.UserGetOutputData;
 
 public class App extends Application implements ScreenTransition {
 	Stage stage;

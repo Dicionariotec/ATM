@@ -1,4 +1,4 @@
-package usecase.user.get.output;
+package infra.user.get.output;
 
 public class UserGetOutputData {
 	private int userId;
