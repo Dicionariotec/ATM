@@ -1,9 +1,10 @@
 package usecase.user.get;
 
 import domain.User.User;
+import domain.User.UserGetDataValidation;
+import domain.User.UserGetInputValidation;
 import usecase.user.get.data.UserGetDataGateway;
 import usecase.user.get.input.UserGetInputBoundary;
-import usecase.user.get.input.UserGetInputData;
 import usecase.user.get.output.UserGetOutputBoundary;
 
 public class UserGetInteractor implements UserGetInputBoundary {
@@ -17,20 +18,9 @@ public class UserGetInteractor implements UserGetInputBoundary {
 
     @Override
     public void generateUserInputData(String number, String password) throws Exception {
-        // TODO: apagar esse usergetinputdata se so estiver usando aqui
-    	UserGetInputData userGetInputData = new UserGetInputData(number, password);
-
-    	// TODO: validar em outro local
-        if (userGetInputData.getNumber().isEmpty()) {
-        	throw new Exception("Numero do usuario nao pode ser nulo");
-        }
-        
-        User user = userGetDataGateway.getUser(userGetInputData.getNumber(), userGetInputData.getPassword());
-        
-        if (user.getId() == -1) {
-        	throw new Exception("Usuario nao encontrado");
-        }
-        
+    	UserGetInputValidation.validate(number);
+        User user = userGetDataGateway.getUser(number, password);
+        UserGetDataValidation.validate(user);
         userGetOutputBoundary.generateUserOutputData(user.getId(), user.getName(), user.getBalance());
     }
 }

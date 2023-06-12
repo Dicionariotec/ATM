@@ -1,4 +1,4 @@
-package usecase.user.get.data;
+package infra.user.get.data;
 
 public class UserGetData {
 	private int id;

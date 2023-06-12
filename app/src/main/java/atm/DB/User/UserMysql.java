@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import infra.user.get.data.UserGetData;
 import infra.user.get.data.UserGetModel;
 import infra.user.update.data.UserUpdateModel;
-import usecase.user.get.data.UserGetData;
 
 public class UserMysql implements UserGetModel, UserUpdateModel {
 
