@@ -3,91 +3,39 @@
  */
 package atm;
 
-import atm.GUI.GuestScreen;
-import atm.GUI.HomeScreen;
-import atm.GUI.TransactionScreen;
-import atm.GUI.TransactionScreen.Type;
+import java.util.concurrent.Callable;
+
+import atm.Factories.user.UserGetFactory;
 import infra.user.get.output.UserGetOutputData;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
-public class App extends Application implements ScreenTransition {
-	Stage stage;
-	Scene scene;
+@Command(name = "app")
+public class App implements Callable<Integer> {
+	@Option(names = {"-u", "--user"}, description = "User name", interactive = true)
+	char[] userName;
 	
-	GuestScreen guestScreen;
-	HomeScreen homeScreen;
-	TransactionScreen depositTransactionScreen;
-	TransactionScreen withdrawalTransactionScreen;
-
-    public static void main(String[] args) {
-        launch(args);
+	@Option(names = {"-p", "--password"}, description = "User password", interactive = true)
+	char[] userPassword;
+	
+    public static void main(String... args) {
+        int exitCode = new CommandLine(new App()).execute("-u", "-p");
+        System.exit(exitCode);
     }
-
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-    	guestScreen = new GuestScreen(this);
-    	scene = new Scene(guestScreen.getParent(), 300, 300);
-    	
-        stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+    public Integer call() throws Exception {
+        String userNameString = new String(userName);
+        String userPasswordString = new String(userPassword);
+        
+        UserGetFactory userGetFactory = new UserGetFactory();
+        userGetFactory.getUserGetController().userGetInputData(userNameString, userPasswordString);
+        UserGetOutputData userGetOutputData = userGetFactory.getUserGetPresenter().getUserGetOutputData();
+        
+        System.out.printf("USER ID: %d \n", userGetOutputData.getUserId());
+        System.out.printf("USER BALANCE: %s \n", userGetOutputData.getUserBalance());
+        System.out.printf("USER NAME: %s", userGetOutputData.getUserName());
+        return 1;
     }
-
-
-	@Override
-	public void goToHomeScreen(UserGetOutputData userGetOutputData) {
-		if (homeScreen == null) {
-			homeScreen = new HomeScreen(this, userGetOutputData.getUserBalance(), userGetOutputData.getUserName(), userGetOutputData.getUserId());
-		}
-		scene.setRoot(homeScreen.getParent());
-	}
-
-
-	@Override
-	public void goToDepositScreen(String balance, int userId) {
-		if (depositTransactionScreen == null) {
-			depositTransactionScreen = new TransactionScreen(this, Type.deposit, userId);
-		}
-		depositTransactionScreen.setBalance(balance);
-		scene.setRoot(depositTransactionScreen.getParent());
-	}
-
-
-	@Override
-	public void goToWithdrawalScreen(String balance, int userId) {
-		if (withdrawalTransactionScreen == null) {
-			withdrawalTransactionScreen = new TransactionScreen(this, Type.withdrawal, userId);
-		}
-		withdrawalTransactionScreen.setBalance(balance);
-		scene.setRoot(withdrawalTransactionScreen.getParent());
-	}
-
-
-	@Override
-	public void goBackToHomeScreen() {
-		if (homeScreen != null) {
-			scene.setRoot(homeScreen.getParent());
-		}
-	}
-
-
-	@Override
-	public void goToRefreshedHomeScreen() {
-		if (homeScreen != null) {
-			homeScreen.refreshScreen();
-			scene.setRoot(homeScreen.getParent());
-		}
-	}
-
-
-	@Override
-	public void goToGuestScreen() {
-		homeScreen = null;
-		depositTransactionScreen = null;
-		withdrawalTransactionScreen = null;
-		scene.setRoot(guestScreen.getParent());
-	}
 }
