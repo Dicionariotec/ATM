@@ -20,7 +20,7 @@ public class TransactionMysql implements TransactionGetModel, TransactionInsertM
 	public synchronized TransactionGetData[] selectByUserId(int userId) {
 		List<TransactionGetData> transactionGetDatas = new ArrayList<>();
 		
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "Idkfa600%")) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "")) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from transactions where user_id = " + userId);
 			while(resultSet.next()) {
@@ -37,7 +37,7 @@ public class TransactionMysql implements TransactionGetModel, TransactionInsertM
 
 	@Override
 	public boolean insert(String amount, int userId, byte type) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "Idkfa600%")) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "")) {
 			PreparedStatement preparedStatement = connection.prepareStatement("insert into transactions (amount, type, user_id, created_at) values ('" + amount + "', " + type + ", " + userId + ", NOW())", Statement.RETURN_GENERATED_KEYS);
 			int affectedRows = preparedStatement.executeUpdate();
 			

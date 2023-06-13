@@ -16,7 +16,7 @@ public class UserMysql implements UserGetModel, UserUpdateModel {
 		UserGetData userGetData = new UserGetData(-1);
 		userGetData.setNumber(number);
 		
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "Idkfa600%")) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "")) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from users where number = '" + number + "' and password = '" + password + "' limit 1");
 			if(resultSet.next()) {
@@ -34,7 +34,7 @@ public class UserMysql implements UserGetModel, UserUpdateModel {
 	@Override
 	public synchronized String updateBalance(int userId, String balance) {
 		String balanceAfter = "";
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "Idkfa600%")) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "")) {
 			PreparedStatement preparedStatement = connection.prepareStatement("update users set balance = ? where id = ? LIMIT 1;", Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, balance);
 			preparedStatement.setInt(2, userId);
@@ -55,7 +55,7 @@ public class UserMysql implements UserGetModel, UserUpdateModel {
 	
 	private synchronized String getUserBalance(int userId) {
 		String balance = "";
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "Idkfa600%")) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ATM", "root", "")) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select id, balance from users where id = " + userId + " limit 1");
 			if(resultSet.next()) {
