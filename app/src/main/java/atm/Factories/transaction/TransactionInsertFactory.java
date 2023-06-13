@@ -5,7 +5,7 @@ import infra.transaction.insert.data.TransactionInsertDataAccess;
 import infra.transaction.insert.data.TransactionInsertModel;
 import infra.transaction.insert.input.TransactionInsertController;
 import infra.transaction.insert.output.TransactionInsertPresenter;
-import usecase.transaction.insert.TransactionInsertInteractor;
+import application.transaction.insert.TransactionInsertInteractor;
 
 public class TransactionInsertFactory {
 	// User case

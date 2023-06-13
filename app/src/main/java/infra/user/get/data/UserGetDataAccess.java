@@ -1,7 +1,7 @@
 package infra.user.get.data;
 
 import domain.User.User;
-import usecase.user.get.data.UserGetDataGateway;
+import application.user.get.data.UserGetDataGateway;
 
 public class UserGetDataAccess implements UserGetDataGateway {
 	UserGetData userGetData;

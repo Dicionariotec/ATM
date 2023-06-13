@@ -1,6 +1,6 @@
 package infra.user.get.output;
 
-import usecase.user.get.output.UserGetOutputBoundary;
+import application.user.get.output.UserGetOutputBoundary;
 
 public class UserGetPresenter implements UserGetOutputBoundary {
     UserGetOutputData userGetOutputData;

@@ -1,6 +1,6 @@
 package infra.user.update.output;
 
-import usecase.user.update.output.UserUpdateOutputBoundary;
+import application.user.update.output.UserUpdateOutputBoundary;
 
 public class UserUpdatePresenter implements UserUpdateOutputBoundary {
 	String balanceAfter;

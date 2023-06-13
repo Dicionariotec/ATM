@@ -1,7 +1,7 @@
 package infra.transaction.get.output;
 
 import domain.Transaction.Transaction;
-import usecase.transaction.get.output.TransactionGetOutputBoundary;
+import application.transaction.get.output.TransactionGetOutputBoundary;
 
 public class TransactionGetPresenter implements TransactionGetOutputBoundary {
 	TransactionGetOutputData[] transactionGetOutputData;

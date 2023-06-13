@@ -1,6 +1,6 @@
 package infra.transaction.insert.output;
 
-import usecase.transaction.insert.output.TransactionInsertOutputBoundary;
+import application.transaction.insert.output.TransactionInsertOutputBoundary;
 
 public class TransactionInsertPresenter implements TransactionInsertOutputBoundary{
 	boolean wasSuccessfullyInserted;

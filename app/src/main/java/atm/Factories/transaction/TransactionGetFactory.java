@@ -5,7 +5,7 @@ import infra.transaction.get.data.TransactionGetDataAccess;
 import infra.transaction.get.data.TransactionGetModel;
 import infra.transaction.get.input.TransactionGetController;
 import infra.transaction.get.output.TransactionGetPresenter;
-import usecase.transaction.get.TransactionGetInteractor;
+import application.transaction.get.TransactionGetInteractor;
 
 public class TransactionGetFactory {
 	// Use case

@@ -1,6 +1,6 @@
 package infra.user.get.input;
 
-import usecase.user.get.input.UserGetInputBoundary;
+import application.user.get.input.UserGetInputBoundary;
 
 public class UserGetController {
     UserGetInputBoundary userGetInputBoundary;

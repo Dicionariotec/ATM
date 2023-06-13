@@ -1,6 +1,6 @@
 package infra.transaction.insert.input;
 
-import usecase.transaction.insert.input.TransactionInsertInputBoundary;
+import application.transaction.insert.input.TransactionInsertInputBoundary;
 
 public class TransactionInsertController {
 	TransactionInsertInputBoundary transactionInsertInputBoundary;

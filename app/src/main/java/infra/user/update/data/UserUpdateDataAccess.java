@@ -1,6 +1,6 @@
 package infra.user.update.data;
 
-import usecase.user.update.data.UserUpdateDataGateway;
+import application.user.update.data.UserUpdateDataGateway;
 
 public class UserUpdateDataAccess implements UserUpdateDataGateway {
 	UserUpdateModel userUpdateModel;

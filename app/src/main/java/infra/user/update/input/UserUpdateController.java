@@ -1,6 +1,6 @@
 package infra.user.update.input;
 
-import usecase.user.update.input.UserUpdateInputBoundary;
+import application.user.update.input.UserUpdateInputBoundary;
 
 public class UserUpdateController {
 	UserUpdateInputBoundary userUpdateInputBoundary;

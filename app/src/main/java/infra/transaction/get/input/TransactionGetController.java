@@ -1,6 +1,6 @@
 package infra.transaction.get.input;
 
-import usecase.transaction.get.input.TransactionGetInputBoundary;
+import application.transaction.get.input.TransactionGetInputBoundary;
 
 public class TransactionGetController {
 	TransactionGetInputBoundary transactionGetInputBoundary;

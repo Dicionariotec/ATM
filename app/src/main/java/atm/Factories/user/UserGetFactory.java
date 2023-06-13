@@ -5,7 +5,7 @@ import infra.user.get.data.UserGetDataAccess;
 import infra.user.get.data.UserGetModel;
 import infra.user.get.input.UserGetController;
 import infra.user.get.output.UserGetPresenter;
-import usecase.user.get.UserGetInteractor;
+import application.user.get.UserGetInteractor;
 
 public class UserGetFactory {
 	// UseCase

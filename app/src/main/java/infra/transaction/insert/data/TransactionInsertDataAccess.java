@@ -1,6 +1,6 @@
 package infra.transaction.insert.data;
 
-import usecase.transaction.insert.data.TransactionInsertDataGateway;
+import application.transaction.insert.data.TransactionInsertDataGateway;
 
 public class TransactionInsertDataAccess implements TransactionInsertDataGateway {
 	TransactionInsertModel transactionInsertModel;

@@ -1,7 +1,7 @@
 package infra.transaction.get.data;
 
 import domain.Transaction.Transaction;
-import usecase.transaction.get.data.TransactionGetDataGateway;
+import application.transaction.get.data.TransactionGetDataGateway;
 
 public class TransactionGetDataAccess implements TransactionGetDataGateway {
 	TransactionGetData[] transactionGetData;
