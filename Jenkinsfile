@@ -7,4 +7,10 @@ node {
       sh "./gradlew sonar"
     }
   }
+
+  stage('JUnit tests') {
+    withGradle {
+      sh './gradlew test --scan'
+    }
+  }
 }
