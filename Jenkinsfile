@@ -8,15 +8,15 @@ node {
     }
   }
 
-  stage('JUnit tests') {
+  stage('JUnit tests and build') {
     withGradle {
-      sh './gradlew test --scan'
+      sh './gradlew build --scan'
     }
   }
 
-  stage('Build') {
+  stage('Assembles jar') {
     withGradle {
-      sh './gradlew build'
+      sh './gradlew jar'
     }
   }
 
