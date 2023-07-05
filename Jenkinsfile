@@ -21,6 +21,6 @@ node {
   }
 
   stage('Upload') {
-    nexusPublisher nexusInstanceId: 'ATMRespository', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/build/libs/app.jar']], mavenCoordinate: [artifactId: 'atm', groupId: 'com.dicionariotec.atm', packaging: 'jar', version: '1.0.0']]]
+    nexusPublisher nexusInstanceId: 'ATMRespository', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/italoricardogeske/.jenkins/workspace/ATMSonarqube/app/build/libs/app.jar']], mavenCoordinate: [artifactId: 'atm', groupId: 'com.dicionariotec.atm', packaging: 'jar', version: '1.0.0']]]
   }
 }
